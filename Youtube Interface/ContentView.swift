@@ -86,100 +86,52 @@ struct ContentView_Previews: PreviewProvider {
 struct konten: View {
     var body: some View {
         List{
-            VStack{
-                ZStack(alignment: .bottomTrailing){
-                    Image("konten")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                    Text("10.00")
-                        .padding(.all, 5)
-                        .foregroundColor(Color.white)
-                        .font(.caption)
-                        .background(Color.black)
-                        .cornerRadius(5)
-                        .padding(.trailing, 5)
-                        .padding(.bottom, 5)
-                }
-                HStack (spacing: 5){
-                    Image("rip")
-                        .resizable()
-                        .clipShape(Circle())
-                        .frame(width: 30, height: 30)
-                    VStack(alignment: .leading) {
-                        Text("Tutorial create content #1")
-                            .font(.headline)
-                        HStack {
-                            Text("this is description about video how to create a good content to post on your Instagram")
-                                .font(.caption)
-                        }
-                    }
-                    Spacer()
-                    Image(systemName: "list.bullet")
-                }
+            cellContent(imageContent: "konten", profile: "rip", title: "Tutorial create content #1", description: "this is description about video how to create a good content to post on your Instagram", duration: "10.00")
+            cellContent(imageContent: "konten2", profile: "rip", title: "Tutorial create content #2", description: "this is description about video how to create a good content to post on your Instagram", duration: "10.00")
+            cellContent(imageContent: "konten", profile: "rip", title: "Tutorial create content #3", description: "this is description about video how to create a good content to post on your Instagram", duration: "10.00")
+        }
+    }
+}
+
+
+struct cellContent : View{
+    
+    var imageContent: String
+    var profile: String
+    var title: String
+    var description: String
+    var duration: String
+    
+    var body: some View {
+        VStack{
+            ZStack(alignment: .bottomTrailing){
+                Image(imageContent)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                Text(duration)
+                    .padding(.all, 5)
+                    .foregroundColor(Color.white)
+                    .font(.caption)
+                    .background(Color.black)
+                    .cornerRadius(5)
+                    .padding(.trailing, 5)
+                    .padding(.bottom, 5)
             }
-            
-            VStack{
-                ZStack(alignment: .bottomTrailing){
-                    Image("konten2")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                    Text("10.00")
-                        .padding(.all, 5)
-                        .foregroundColor(Color.white)
-                        .font(.caption)
-                        .background(Color.black)
-                        .cornerRadius(5)
-                        .padding(.trailing, 5)
-                        .padding(.bottom, 5)
-                }
-                HStack{
-                    Image("rip")
-                        .resizable()
-                        .clipShape(Circle())
-                        .frame(width: 30, height: 30)
-                    VStack(alignment: .leading) {
-                        Text("Tutorial create content #2")
-                            .font(.headline)
-                        HStack {
-                            Text("this is description about video how to create a good content to post on your Instagram")
-                                .font(.caption)
-                        }
+            HStack{
+                Image(profile)
+                    .resizable()
+                    .clipShape(Circle())
+                    .frame(width: 30, height: 30)
+                VStack(alignment: .leading) {
+                    Text(title)
+                        .font(.headline)
+                    HStack {
+                        Text(description)
+                            .font(.caption)
                     }
-                    Spacer()
-                    Image(systemName: "list.bullet")
                 }
-            }
-            
-            VStack{
-                ZStack(alignment: .bottomTrailing){
-                    Image("konten")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                    Text("10.00")
-                        .padding(.all, 5)
-                        .foregroundColor(Color.white)
-                        .font(.caption)
-                        .background(Color.black)
-                        .cornerRadius(5)
-                        .padding(.trailing, 5)
-                        .padding(.bottom, 5)
-                }
-                HStack{
-                    Image("rip")
-                        .resizable()
-                        .clipShape(Circle())
-                        .frame(width: 30, height: 30)
-                    VStack(alignment: .leading) {
-                        Text("Tutorial create content #2")
-                            .font(.headline)
-                        HStack {
-                            Text("this is description about video how to create a good content to post on your Instagram")
-                                .font(.caption)
-                        }
-                    }
-                    Spacer()
-                    Image(systemName: "list.bullet")
-                }
+                Spacer()
+                Image(systemName: "list.bullet")
             }
         }
     }
