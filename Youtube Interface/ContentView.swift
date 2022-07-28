@@ -9,7 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Home()
+        TabView {
+            Home()
+                .tabItem {
+                Image(systemName: "house.fill")
+                Text("Home")
+            }
+            Home()
+                .tabItem {
+                Image(systemName: "paperplane.fill")
+                Text("Explore")
+            }
+            Home()
+                .tabItem {
+                Image(systemName: "envelope.fill")
+                Text("Message")
+            }
+            Home()
+                .tabItem {
+                Image(systemName: "person.fill")
+                Text("Account")
+            }
+        }
+//        .accentColor(Color("tapBar"))
     }
 }
 
@@ -48,8 +70,7 @@ struct Home: View {
                     }
                 )
                 .navigationBarTitle("", displayMode: .inline)
-                
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
